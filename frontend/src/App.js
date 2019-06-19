@@ -64,7 +64,7 @@ class App extends Component {
 
   rendercategorylist(){
        return this.state.categories.map((category) => (
-            <span key={category.id} className="tag key={category.id}">{category.name}</span>
+            <span key={category.id} className="tag is-link is-medium">{category.name}<button className="delete is-small"></button></span>
             
         ));
   }
@@ -90,7 +90,7 @@ class App extends Component {
     console.log(id);
     this.setState({
         todos: this.state.todos.filter(todo => {
-          
+
             if(todo.id === id){
               
             }
