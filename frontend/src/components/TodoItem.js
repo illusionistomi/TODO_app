@@ -4,6 +4,9 @@ export class TodoItem extends Component {
     
     render() {
         const { id, subject, status, createdAt, updatedAt} = this.props.todo;
+
+        let creation_date = new Date(createdAt);
+
         return (
             
             <div className="box">
@@ -11,7 +14,11 @@ export class TodoItem extends Component {
                 <div className="media-content">
                   <div className="content">
                     <p>
-                      <strong>{subject}</strong><br/> <small>Created at: {createdAt}</small> <small>Statue: {status}</small>
+                      <strong>{subject}</strong><br/> <small>Created at:&nbsp;
+                      <strong>{creation_date.getDate()}/{creation_date.getMonth()}/{creation_date.getFullYear()} || {creation_date.getHours()}:{creation_date.getMinutes()}</strong></small> 
+                      <br/>
+                      <small>Status: <strong>{status}</strong></small>
+                      
                       <br/>
                     </p>
                   </div>
