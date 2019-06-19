@@ -28,23 +28,58 @@ app.put('/api/todos/:id', (req, res) => {
 });
 
 app.get('/api/categories', (req, res) => {  
-  // TODO: retreive contacts and send to requester
+
+  return db.categories.findAll()
+    .then((categories) => res.send(categories))
+    .catch((err) => {
+      console.log('There was an error querying categories', JSON.stringify(err))
+      return res.send(err)
+    });
+
 });
 
 app.post('/api/categories', (req, res) => {  
-  const { firstName, lastName, phone } = req.body
-  // TODO: create contact
+  
+  const Name = req.body.Name;
+  console.log(Name);
+  return db.categories.create({name:req.body.Name})
+    .then((category) => res.send(category))
+    .catch((err) => {
+      console.log('***There was an error creating a category', JSON.stringify(contact))
+      return res.status(400).send(err)
+    })
+
 });
 
 app.delete('/api/categories/:id', (req, res) => {  
+
   const id = parseInt(req.params.id)
-  // TODO: find and delete contact by id
+  return db.categories.findByPk(id)
+    .then((category) => category.destroy())
+    .then(() => res.send({ id }))
+    .catch((err) => {
+      console.log('***Error deleting contact', JSON.stringify(err))
+      res.status(400).send(err)
+    })
+  
 });
 
 app.put('/api/categories/:id', (req, res) => {  
+
   const id = parseInt(req.params.id)
-  const { firstName, lastName, phone } = req.body
-  // TODO: find and update contact by id
+
+  return db.categories.findByPk(id)
+  .then((category) => {
+    // const Name = req.body.Name;
+
+    return category.update({name:req.body.Name})
+      .then(() => res.send(category))
+      .catch((err) => {
+        console.log('***Error updating category', JSON.stringify(err))
+        res.status(400).send(err)
+      })
+  })
+
 });
 
 app.listen(3000, () => {  
