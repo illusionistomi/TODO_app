@@ -16,12 +16,12 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Installing
 
-Install all project dependencies using package manager of your choice. Run
+Install all project dependencies using package manager of your choice. Run:
 
 ```
 npm install
 ```
-on both server and frontend directories.
+in both server and frontend directories if you are using node package manager.
 
 when installation process is finished.
 
@@ -36,7 +36,7 @@ or
 ```
 node main.js
 ```
-This command will start the express server.
+In the server directory. This command will start the express server.
 
 Once the Backend server started. open cmd or terminal in frontend directory an run
 
@@ -47,7 +47,7 @@ this command will start the react frontend. Now you should be able to see the pr
 
 ## Authors
 
-* **Taher Ahmed** - *Initial work* - [illusionistomi](https://github.com/illusionistomi)
+* **Taher Ahmed** - [illusionistomi](https://github.com/illusionistomi)
 
 ## License
 
