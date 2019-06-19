@@ -3,7 +3,8 @@ const bodyParser = require('body-parser');
 const db = require('./models'); 
 
 const app = express();
-
+var cors = require('cors');
+app.use(cors())
 app.use(bodyParser.json());  
 // app.use(express.static(__dirname + '/static'));
 
