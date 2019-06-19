@@ -3,6 +3,8 @@ import axios from 'axios';
 
 import './App.css';
 import Todos from './components/Todos';
+import Todo_form from './components/Todo_form';
+import Category_form from './components/Category_form';
 
 class App extends Component {
 
@@ -94,7 +96,9 @@ class App extends Component {
               <Todos todos={this.state.todos} markComplete = {this.markComplete} delTodo={this.delTodo}/>
             </div>
             <div className="column">
-              Second column
+              <Todo_form/>
+              <br/>
+              <Category_form/>
             </div>
           </div>
         </section>
