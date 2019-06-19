@@ -6,7 +6,7 @@ A simple TO DO App using Express back-end and react.js
 
 ### Backend
 * [express.js](https://expressjs.com/) - Node.js Framework.
-* [Sequelize](http://docs.sequelizejs.com/) - for SQLite databse.
+* [Sequelize](http://docs.sequelizejs.com/) - for SQLite database management.
 
 ### Frontend
 * [react.js](https://reactjs.org/) - Frontend UI library.
@@ -14,75 +14,40 @@ A simple TO DO App using Express back-end and react.js
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Prerequisites
-
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
-
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+Install all project dependencies using package manager of your choice. Run
 
 ```
-Give the example
+npm install
 ```
+on both server and frontend directories.
 
-And repeat
+when installation process is finished.
 
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
+Run
 
 ```
-Give an example
+nodemon
 ```
 
-### And coding style tests
-
-Explain what these tests test and why
+or
 
 ```
-Give an example
+node main.js
 ```
+This command will start the express server.
 
-## Deployment
+Once the Backend server started. open cmd or terminal in frontend directory an run
 
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+```
+npm start
+```
+this command will start the react frontend. Now you should be able to see the project running on your browser.
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **Taher Ahmed** - *Initial work* - [illusionistomi](https://github.com/illusionistomi)
 
 ## License
 
