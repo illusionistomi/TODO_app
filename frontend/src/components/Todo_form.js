@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 
 export class Todo_form extends Component {
     
+    render_categories(){
+
+      return this.props.categories.map((category) => (
+            <option key={category.id} value={category.id}>{category.name}</option>
+        ));
+    }
+
     render() {
         return (
           <div className="container">  
@@ -21,8 +28,7 @@ export class Todo_form extends Component {
               <div className="control">
                 <div className="select">
                   <select>
-                    <option>Select dropdown</option>
-                    <option>With options</option>
+                    {this.render_categories()}
                   </select>
                 </div>
               </div>

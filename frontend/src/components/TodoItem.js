@@ -24,18 +24,18 @@ export class TodoItem extends Component {
                   </div>
                   <nav className="level is-mobile">
                     <div className="level-left">
-                        <a className="level-item" aria-label="like">
+                        <a className="level-item" aria-label="like" onClick={this.props.markComplete.bind(this,id)}>
                             <span className="icon is-small">
                             <i className="fa fa-check" aria-hidden="true"></i>
                             </span>
                         </a>
                       
-                      <a className="level-item" aria-label="retweet">
+                      <a className="level-item" aria-label="Edit">
                         <span className="icon is-small">
                           <i className="fa fa-edit" aria-hidden="true"></i>
                         </span>
                       </a>
-                      <a className="level-item" aria-label="reply">
+                      <a className="level-item" aria-label="Delete" onClick={this.props.delTodo.bind(this, id)}>
                         <span className="icon is-small">
                           <i className="fa fa-times" aria-hidden="true"></i>
                         </span>

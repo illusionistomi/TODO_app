@@ -65,16 +65,41 @@ class App extends Component {
   rendercategorylist(){
        return this.state.categories.map((category) => (
             <span key={category.id} className="tag key={category.id}">{category.name}</span>
-            // <li key={category.id}>{category.name}</li>
+            
         ));
   }
 
-  markComplete(){
+  markComplete = (id) => {
+      this.setState({
+        todos: this.state.todos.map(todo => {
+          if(todo.id === id)
 
+            if (todo.status === 'open') {
+              todo.status = 'done';
+            }
+            else{
+              todo.status = 'open';
+            }
+            
+          return todo;
+        })
+      });
   }
 
-  delTodo(){
-
+  delTodo = (id) => {
+    console.log(id);
+    this.setState({
+        todos: this.state.todos.filter(todo => {
+          
+            if(todo.id === id){
+              
+            }
+            else{
+              return todo;
+            }
+          
+        })
+      });
   }
 
   render() {
@@ -96,7 +121,7 @@ class App extends Component {
               <Todos todos={this.state.todos} markComplete = {this.markComplete} delTodo={this.delTodo}/>
             </div>
             <div className="column">
-              <Todo_form/>
+              <Todo_form categories={this.state.categories}/>
               <br/>
               <Category_form/>
             </div>
