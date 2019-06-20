@@ -25,11 +25,11 @@ class App extends Component {
               {category.name}
               &nbsp;
               <a onClick={() => context.deleteCategory(category.id) } >
-                <i class="fa fa-times"></i>
+                <i className="fa fa-times"></i>
               </a>
               &nbsp;
               <a onClick={() => context.editCategory(category.id) }>
-                <i class="fa fa-edit"></i>
+                <i className="fa fa-edit"></i>
               </a>
             </span>
             
@@ -41,7 +41,7 @@ class App extends Component {
     <AppProvider>    
         <div className="section">
             <div className="container">
-              <h1 className="title">A simple TODO APP</h1>
+              <h1 className="title">A simple TODO APP using React context API</h1>
               <h2 className="subtitle">
                 Minimalistic TODO App for <strong>Small</strong> Projects
               </h2>
@@ -58,7 +58,9 @@ class App extends Component {
                   <Todos/>
                 </div>
                 <div className="column">
-                  <Todo_form/>
+                  <AppContext.Consumer>                  
+                    {(context) => <Todo_form addtodo={context.addtodo} deltodo={context.delTodo}/>}
+                  </AppContext.Consumer>
                   <br/>
                   <AppContext.Consumer>
                     {(context) => <Category_form addCategory={context.addCategory}/>}

@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 export class TodoItem extends Component {
     
     render() {
-        const { id, subject, status, createdAt, updatedAt} = this.props.todo;
+        const { id, subject, status, category,createdAt, updatedAt} = this.props.todo;
 
         let creation_date = new Date(createdAt);
 
@@ -19,6 +19,8 @@ export class TodoItem extends Component {
                       <strong>{subject}</strong><br/> <small>Created at:&nbsp;
                       <strong>{creation_date.getDate()}/{creation_date.getMonth()}/{creation_date.getFullYear()} || {creation_date.getHours()}:{creation_date.getMinutes()}</strong></small> 
                       <br/>
+                      <small>Category: <strong>{category}</strong></small>
+                      &nbsp;&nbsp;
                       <small>Status: <strong>{status}</strong></small>
                       
                       <br/>
@@ -26,7 +28,7 @@ export class TodoItem extends Component {
                   </div>
                   <nav className="level is-mobile">
                     <div className="level-left">
-                        <a href="#" className="level-item" aria-label="like" onClick={this.props.markComplete.bind(this,id)}>
+                        <a className="level-item" aria-label="like" onClick={this.props.markComplete.bind(this,id)}>
                             <span className="icon is-small">
                             <i className="fa fa-check" aria-hidden="true"></i>
                             </span>

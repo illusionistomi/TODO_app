@@ -6,56 +6,18 @@ import AppContext from './AppContext';
 class AppProvider extends Component {
 
   state = {
-    todos: [
-      {
-        "id": 1,
-        "subject": "Travel Index",
-        "status": "open",
-        "createdAt": "2019-06-19T05:46:02.561Z",
-        "updatedAt": "2019-06-19T05:46:02.561Z"
-      },
-      {
-        "id": 2,
-        "subject": "Travel List",
-        "status": "open",
-        "createdAt": "2019-06-19T05:46:02.561Z",
-        "updatedAt": "2019-06-19T05:46:02.561Z"
-      },
-      {
-        "id": 3,
-        "subject": "Travel details",
-        "status": "open",
-        "createdAt": "2019-06-19T05:46:02.561Z",
-        "updatedAt": "2019-06-19T05:46:02.561Z"
-      },
-      {
-        "id": 4,
-        "subject": "Travel Booking",
-        "status": "open",
-        "createdAt": "2019-06-19T06:00:00.936Z",
-        "updatedAt": "2019-06-19T06:44:25.419Z"
-      },
-      {
-        "id": 12,
-        "subject": 'Payment',
-        "status": "open",
-        "createdAt": "2019-06-19T06:24:03.791Z",
-        "updatedAt": "2019-06-19T06:24:03.791Z"
-      },
-      {
-        "id": 13,
-        "subject": "Thank You",
-        "status": "open",
-        "createdAt": "2019-06-19T06:30:33.491Z",
-        "updatedAt": "2019-06-19T06:30:33.491Z"
-      }
-    ],
+    todos: [],
     categories:[],
+    addtodo:(state) => {
+      console.log(state);
+      axios.post('http://localhost:3000/api/todos',state)
+      .then(res => this.setState({todos:res.data}));
+    },
     delTodo: (id) => {
       this.setState({
         todos: this.state.todos.filter(todo => {
             if(todo.id === id){
-
+              axios.delete('http://localhost:3000/api/todos/'+id);
             } 
             else{
               return todo;
@@ -104,6 +66,9 @@ class AppProvider extends Component {
     console.log(this.state.categories);
     axios.get('http://localhost:3000/api/categories')
       .then(res => this.setState({categories:res.data}));
+
+    axios.get('http://localhost:3000/api/todos')
+    .then(res => this.setState({todos:res.data}));
   }
 
   render() {
