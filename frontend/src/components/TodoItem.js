@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+
 export class TodoItem extends Component {
     
     render() {
@@ -8,7 +9,8 @@ export class TodoItem extends Component {
         let creation_date = new Date(createdAt);
 
         return (
-            
+         
+
             <div className="box">
               <article className="media">
                 <div className="media-content">
@@ -24,7 +26,7 @@ export class TodoItem extends Component {
                   </div>
                   <nav className="level is-mobile">
                     <div className="level-left">
-                        <a className="level-item" aria-label="like" onClick={this.props.markComplete.bind(this,id)}>
+                        <a href="#" className="level-item" aria-label="like" onClick={this.props.markComplete.bind(this,id)}>
                             <span className="icon is-small">
                             <i className="fa fa-check" aria-hidden="true"></i>
                             </span>
@@ -35,16 +37,21 @@ export class TodoItem extends Component {
                           <i className="fa fa-edit" aria-hidden="true"></i>
                         </span>
                       </a>
-                      <a className="level-item" aria-label="Delete" onClick={this.props.delTodo.bind(this, id)}>
-                        <span className="icon is-small">
-                          <i className="fa fa-times" aria-hidden="true"></i>
-                        </span>
-                      </a>
+                      
+                        <a className="level-item" aria-label="Delete" onClick={this.props.delTodo.bind(this, id)}>
+                        
+                          <span className="icon is-small">
+                            <i className="fa fa-times" aria-hidden="true"></i>
+                          </span>
+                        </a>
+                     
                     </div>
                   </nav>
                 </div>
               </article>
             </div>
+
+         
 
         )
     }

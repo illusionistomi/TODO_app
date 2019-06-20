@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 // app.use(express.static(__dirname + '/static'));
 
 app.get('/api/todos', (req, res) => {  
-  // TODO: retreive contacts and send to requester
+  
 });
 
 app.post('/api/todos', (req, res) => {  
@@ -41,9 +41,14 @@ app.get('/api/categories', (req, res) => {
 
 app.post('/api/categories', (req, res) => {  
   
-  const Name = req.body.Name;
-  console.log(Name);
-  return db.categories.create({name:req.body.Name})
+  console.log("New Category: " + req.body.Name);
+  db.categories.create({name:req.body.Name})
+  .catch((err) => {
+    console.log('***There was an error creating a category', JSON.stringify(contact))
+    return res.status(400).send(err)
+  })
+
+  return db.categories.findAll()
     .then((category) => res.send(category))
     .catch((err) => {
       console.log('***There was an error creating a category', JSON.stringify(contact))
